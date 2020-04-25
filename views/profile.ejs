@@ -15,7 +15,6 @@
         <button type="submit" class="o-0">Send</button>
     </form>
 </div>
-<!-- <button class="btn d-none" id="leaveRoom">Leave Room</button> -->
 
 <script src="/js/chat_engine.js"></script>
 <script >
@@ -53,9 +52,5 @@ function hideAllOther(){
     $('#leaveRoom').removeClass('d-none');
     $('#sendMessage').removeClass('d-none'); 
     $('.chatbox').removeClass('d-none'); 
-    $('#leaveRoom').on('click', ()=>{
-        window.localStorage.removeItem('room');
-        window.location.reload();  
-    }); 
 }
 </script>
