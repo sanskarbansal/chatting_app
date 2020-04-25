@@ -30,17 +30,17 @@ class ChatEngine{
     registerData(data){
         if(data.from == this.userEmail){
             let doc = $('<div class="self-container">'); 
-            doc.append($('<small>').text(data.from)); 
+            doc.append($('<p class="self">').text(data.from)); 
             doc.append($('<p class="self">').text(data.message)); 
             $('.chatbox').append(doc); 
-            window.scrollBy(0, 100); 
+            document.getElementsByClassName('chatbox')[0].scrollBy(0, 100); 
 
         }else{
             let doc = $('<div class="other-container">'); 
-            doc.append($('<small>').text(data.from)); 
+            doc.append($('<p class="other">').text(data.from)); 
             doc.append($('<p class="other">').text(data.message)); 
             $('.chatbox').append(doc); 
-            window.scrollBy(0, 100); 
+            document.getElementsByClassName('chatbox')[0].scrollBy(0, 100); 
         }
     }
 } 

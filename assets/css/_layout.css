@@ -34,7 +34,7 @@ button{
     font-size: 1.2em; 
     margin: 2em 0 0.5em  0; 
 }
-input{
+.form input{
     padding: 0.5em 0.3em; 
     display: block;
     border: none; 
@@ -66,6 +66,9 @@ input{
     font-weight: bolder;
     background-color: blueviolet;
     color: white; 
+}
+.o-0{
+    opacity: 0;
 }
 p{
     font-family: monospace;

@@ -1,0 +1,82 @@
+.container{
+    margin-top: 2em; 
+}
+#leaveRoom{
+
+    /* margin: 0 auto; */
+    position: fixed;
+    bottom: 10px; 
+    left: 10%;
+    padding: 1em;  
+}
+#msg{
+    margin-top: 2em; 
+}
+.chatbox{
+    position: relative;
+    background-color: black;
+    color: #0ccb00;
+    border-bottom: 4px;
+    height: 90vh;
+    overflow: auto;
+    padding-bottom: 5em;
+    box-sizing: border-box;
+}
+.self-container{
+    display:flex; 
+}
+.self-container  p:first-child, .other-container  p:first-child{
+    max-width: 200px; 
+}
+.chatbox p{
+    width: 40%; 
+    padding: 0.5em 10px; 
+}
+.other-container{
+    display:flex; 
+    flex-wrap: wrap;
+}
+.self, .other{
+    border-radius: 4px;
+    font-size: 0.9em; 
+    padding: 0; 
+    margin: 0; 
+    padding:  0.4em 1em; 
+}
+
+#sendMessage{
+    position: fixed;
+    bottom: 0; 
+    width: 100%; 
+    height: 1.5em;
+    border-top: 1px solid #0ccb00;
+    background-color: black;
+}
+
+
+#sendMessage::before{
+    content: 'l33t$r00t>'; 
+}
+
+#sendMessage input{
+    display: inline-block;
+    width: 75%;  
+    margin: 0; 
+    font-family: monospace;
+    color: #0ccb00; 
+    border: none; 
+    background-color: transparent;   
+}
+.chatbox::-webkit-scrollbar{
+    background-color: #0f7707;
+    width: 0.5em; 
+}
+.chatbox::-webkit-scrollbar-thumb{
+    background-color: black;
+}
+
+@media only screen and (max-width: 450px){
+    .chatbox{
+        height: 91vh; 
+    }
+}
