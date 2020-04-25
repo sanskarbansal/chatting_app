@@ -1,0 +1,88 @@
+body{
+    margin: 0; 
+    font-family: monospace;
+}
+input:active, input:focus, 
+button:active, button:focus{
+    outline: none; 
+}
+button{
+    cursor: pointer; 
+}
+.container{
+    display: flex; 
+    align-items: center;
+    flex-direction: column;
+    width: 80%; 
+    margin: 0 auto; 
+    border-radius: 4px;
+    padding: 2em 0; 
+    box-shadow: 0 0 3px 0px black;
+}
+.form{
+    box-shadow: 0 0 1.5px 0 blue;
+    border-radius: 4px;
+    padding: 0em 2em 2em 2em; 
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+}
+.form-label{
+    display: block;
+    color: grey; 
+    font-family: monospace;
+    font-size: 1.2em; 
+    margin: 2em 0 0.5em  0; 
+}
+input{
+    padding: 0.5em 0.3em; 
+    display: block;
+    border: none; 
+    box-shadow: 0 0 1px 0 black;
+    font-size: 1.3em; 
+    font-family: monospace;
+    border-radius: 4px;
+}
+.form button{
+    background-color: rgb(56, 206, 56); 
+    margin-top: 1em;  
+    color: white; 
+    border: none; 
+    font-size: 2em;
+    font-weight: bolder;
+    text-align: center; 
+    padding: 0.2em 1em ;
+    border-radius: 4px;
+}
+.d-none{
+    display: none; 
+}
+.btn{
+    padding: 0.2em; 
+    border: none; 
+    border-radius: 4px;
+    font-size: 1.2em;
+    font-family: monospace;
+    font-weight: bolder;
+    background-color: blueviolet;
+    color: white; 
+}
+p{
+    font-family: monospace;
+    font-size: 1.3em;
+}
+
+@media only screen and (max-width: 600px){
+   .container{
+       width: 98%; 
+   }
+   .btn{
+       font-size: 1em; 
+   }
+   .form button{
+       font-size: 1.5em; 
+   }
+   p{
+       font-size: 1em; 
+   }
+}

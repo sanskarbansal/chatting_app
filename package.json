@@ -1,0 +1,35 @@
+{
+  "name": "chat_engine",
+  "version": "1.0.0",
+  "description": "Simple chatting engine using socket.io",
+  "main": "index.js",
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^3.2.0",
+    "crypto": "^1.0.1",
+    "ejs": "^3.1.2",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "express-session": "^1.17.1",
+    "mongoose": "^5.9.10",
+    "nodemailer": "^6.4.6",
+    "noty": "^3.2.0-beta",
+    "passport": "^0.4.1",
+    "passport-google-oauth": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "socket.io",
+    "chatting-engine",
+    "express",
+    "mongodb"
+  ],
+  "author": "Sanskar",
+  "license": "ISC"
+}

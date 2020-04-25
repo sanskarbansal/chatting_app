@@ -1,0 +1,53 @@
+<style>
+    h1{
+        font-family: monospace;
+        color: #F4511E; 
+        text-shadow: -1px -1px 0px black;
+        font-weight: bolder;
+        font-size: 3em; 
+    }
+    @media only screen and (max-width:600px) {
+        h1{
+            font-size: 2em; 
+        }
+    }
+</style>
+<div class="container">
+    <div class="d-none" id="sign-up-container">
+        <h1>Sign Up</h1>
+        <form method="post" action="/user/create" class="form">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" name="name" id="name">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" name="email" id="email">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" name="password" id="password">
+            <label for="cpassword" class="form-label">Confirm Password</label>
+            <input type="password" name="cpassword" id="cpassword">
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account?&emsp14;<button class="btn" id="login-here">Login Here</button></p>
+    </div>
+    <div id="login-container">
+        <h1>Sign In </h1>
+        <form method="post" action="/user/login" class="form">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" name="email" id="email">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" name="password" id="password">
+            <button type="submit">Login</button>
+        </form>
+        <p>Dont have an account?&emsp14;<button class="btn" id="sign-up-here">Sign Up Here</button></p>
+    </div>
+</div>
+<script>
+    $('#sign-up-here').on('click', function(){
+        $('#sign-up-container').removeClass('d-none'); 
+        $('#login-container').addClass('d-none'); 
+    }); 
+    $('#login-here').on('click', function(){
+        $('#sign-up-container').addClass('d-none'); 
+        $('#login-container').removeClass('d-none'); 
+
+    }); 
+</script>

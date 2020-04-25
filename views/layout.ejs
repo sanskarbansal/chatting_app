@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/_layout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <link rel="stylesheet" href="/css/_header.css">
+    
+    <%- style %> 
+    <title><%= title %></title>
+</head>
+<body>
+    <%- include('_header') %> 
+    <%- body %> 
+    <script src="/js/jquery-3.5.0.js"></script>
+    <script>
+        <% if(locals.message && (locals.message.length > 0)){ %> 
+            new Noty({
+                theme: 'metroui',
+                type: 'error',
+                layout: 'topRight', 
+                text: '<%= message %>', 
+                timeout: 2000
+            }).show();
+        <% } %> 
+    </script>
+    <%- script %>
+</body>
+</html>

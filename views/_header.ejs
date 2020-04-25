@@ -1,0 +1,15 @@
+
+<nav>
+    <div id="logo">
+        <h1>Chatting Engine</h1>
+    </div>
+    <ul>
+        <% if(locals.user){ %> 
+            <li><a href="#"><%= user.name %></a></li>
+            <li><a href="/user/logout">Logout</a></li>
+        <% }else{ %> 
+            <li><a href="#">ABOUT</a></li>
+            <li><a href="#">CONTACT</a></li>
+        <% } %> 
+    </ul>
+</nav>
