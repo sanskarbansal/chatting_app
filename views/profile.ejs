@@ -18,39 +18,55 @@
 
 <script src="/js/chat_engine.js"></script>
 <script >
-var c = new ChatEngine('<%= user.email %>'); 
-if(!window.localStorage.getItem('room')){
-    $('#connectRoom').on('submit',function(e){
-        console.log('hello'); 
-        e.preventDefault(); 
-        c.joinRoom($('#search').val());
-        hideAllOther();   
-    }); 
-}else{
-    c.joinRoom(window.localStorage.getItem('room'));
-    hideAllOther(); 
-}
-$('#sendMessage').on('submit', (e)=>{
-    e.preventDefault(); 
-    let msg = $('#msg').val().trim(); 
-    if((msg == "logout --user") || (msg == "logout -u")){
-        window.location.replace('/user/logout'); 
-    }else if(msg == "leave --room " + window.localStorage.getItem('room') || msg == "leave -r " + window.localStorage.getItem('room')){
-        window.localStorage.removeItem('room');
-        window.location.reload(); 
+    var c = new ChatEngine('<%= user.email %>'); 
+    if(!getCookie('room').trim() != ''){
+        $('#connectRoom').on('submit',function(e){
+            console.log('hello'); 
+            e.preventDefault(); 
+            c.joinRoom($('#search').val());
+            hideAllOther();   
+        }); 
     }else{
-        let d = {
-            message: msg,  
-            roomName: window.localStorage.getItem('room')
-        }; 
-        c.sendMessage(d); 
+        c.joinRoom(getCookie('room'));
+        hideAllOther(); 
     }
-    $('#msg').val(''); 
-}); 
-function hideAllOther(){
-    $('.container').addClass('d-none'); 
-    $('#leaveRoom').removeClass('d-none');
-    $('#sendMessage').removeClass('d-none'); 
-    $('.chatbox').removeClass('d-none'); 
-}
+    $('#sendMessage').on('submit', (e)=>{
+        e.preventDefault(); 
+        let msg = $('#msg').val().trim(); 
+        
+        if((msg == "logout --user") || (msg == "logout -u")){
+            window.location.replace('/user/logout'); 
+        }else if(msg == "leave --room " + getCookie('room') || msg == "leave -r " + getCookie('room')){
+            document.cookie = "room=; expires=1970-04-26T16:07:39.000Z; path=/;";
+            window.location.reload(); 
+        }else{
+            let d = {
+                message: msg,  
+                roomName: getCookie('room')
+            }; 
+            c.sendMessage(d); 
+        }
+        $('#msg').val(''); 
+    }); 
+    function hideAllOther(){
+        $('.container').addClass('d-none'); 
+        $('#leaveRoom').removeClass('d-none');
+        $('#sendMessage').removeClass('d-none'); 
+        $('.chatbox').removeClass('d-none'); 
+    }
+    function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+    }
 </script>

@@ -13,6 +13,7 @@ module.exports.socketServe = function(socketServer){
             io.to(socket.id).emit('sJoin', msgs);  
         }); 
         socket.on('message', (data)=>{
+            console.log(messages); 
             data.message = data.message.trim(' ');  
             messages.push(data); 
             if(!data.message == ''){

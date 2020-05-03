@@ -20,7 +20,7 @@ class ChatEngine{
                     this.registerData(element); 
                 }); 
             }
-            window.localStorage.setItem('room', roomName); 
+            this.setCookie('room', roomName, 1); 
         }); 
     }
     sendMessage(data){
@@ -43,4 +43,10 @@ class ChatEngine{
             document.getElementsByClassName('chatbox')[0].scrollBy(0, 100); 
         }
     }
+    setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      }
 } 

@@ -40,7 +40,7 @@ module.exports.createUser = async function(req, res){
 }
 
 module.exports.dashboard = function(req, res){
-    if(req.user.isVerified){
+    if(req.isAuthenticated() && req.user.isVerified){
         res.render('profile', {title: "Welcome " + req.user.name, user: req.user}); 
     }else{
         req.flash('message', "User is not verified please verify your email once."); 
