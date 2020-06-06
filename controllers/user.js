@@ -18,7 +18,7 @@ module.exports.createUser = async function(req, res){
                     accessToken: crypto.randomBytes(20).toString('hex')
                 }); 
                 let msg = {
-                    from: 'sanskarbnsl75@gmail.com', 
+                    from: process.env.USER || '<email>', 
                     to: user.email, 
                     subject: 'Account Verification Chatting Engine', 
                     text: `Please confirm your email by visiting this link: http://${req.headers.host}/confirmation/${token.accessToken}.` 

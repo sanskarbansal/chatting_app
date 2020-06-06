@@ -1,7 +1,7 @@
 class ChatEngine{
     constructor(email){
         this.userEmail = email; 
-        this.socket = io.connect('http://localhost:3000'); 
+        this.socket = io.connect('http://'+window.location.hostname+':3000'); 
         this.connectionHandler(); 
     }
     connectionHandler(){
