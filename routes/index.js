@@ -14,7 +14,7 @@ router.get('/confirmation/:token', async (req, res) => {
         user.save(); 
         req.flash('message', 'Email Verified Successully!'); 
     }else{
-        req.flash('message', 'Sorry, please sign up again.); 
+        req.flash('message', 'Sorry, please sign up again.'); 
     }
     res.redirect('/'); 
 
